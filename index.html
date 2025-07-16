@@ -1,106 +1,125 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla de Enfermería Interactiva</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla Interactiva de Enfermería</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff9fb;
-      padding: 2rem;
-      color: #4d4d4d;
+      font-family: Arial, sans-serif;
+      background: #fffafc;
+      color: #333;
+      padding: 20px;
     }
-
     h1 {
       text-align: center;
-      color: #d38cad;
+      color: #c87b9f;
     }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 40px;
     }
-
-    .ramo {
-      padding: 1rem;
-      background-color: #fbd5e5;
-      border: none;
+    .year {
+      border: 2px solid #f2c1d1;
+      padding: 16px;
       border-radius: 12px;
-      cursor: pointer;
+      background-color: #ffe9f0;
+    }
+    .year h2 {
       text-align: center;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      font-size: 1rem;
+      color: #b85d89;
     }
-
-    .ramo:disabled {
-      background-color: #e3e3e3;
-      color: #a1a1a1;
-      cursor: not-allowed;
+    .subject {
+      margin: 8px 0;
+      padding: 10px;
+      background-color: #f8d6e0;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
-
-    .ramo.aprobado {
-      background-color: #d3f6db;
-      color: #4b8c5c;
+    .subject.completed {
+      background-color: #d3bcd3;
       text-decoration: line-through;
-    }
-
-    .ramo:hover:not(:disabled):not(.aprobado) {
-      background-color: #fce0ec;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Malla de Enfermería ✨</h1>
-  <div class="grid" id="malla"></div>
+  <h1>Malla Curricular de Enfermería</h1>
+  <div class="grid">
+    <!-- Primer Año -->
+    <div class="year">
+      <h2>1er Año</h2>
+      <button class="subject">Fundamentos de Enfermería</button>
+      <button class="subject">Anatomía</button>
+      <button class="subject">Salud Pública I</button>
+      <button class="subject">Comunicación y Relación de Ayuda</button>
+      <button class="subject">Bioquímica</button>
+      <button class="subject">Enfermería del Adulto I</button>
+      <button class="subject">Fisiología</button>
+      <button class="subject">Salud Pública II</button>
+      <button class="subject">Psicología del Desarrollo</button>
+      <button class="subject">Farmacología I</button>
+    </div><!-- Segundo Año -->
+<div class="year">
+  <h2>2° Año</h2>
+  <button class="subject">Enfermería del Adulto II</button>
+  <button class="subject">Microbiología y Parasitología</button>
+  <button class="subject">Farmacología II</button>
+  <button class="subject">Enfermería Familiar y Comunitaria I</button>
+  <button class="subject">Ética Profesional</button>
+  <button class="subject">Enfermería Médico-Quirúrgica</button>
+  <button class="subject">Nutrición y Dietética</button>
+  <button class="subject">Enfermería Familiar y Comunitaria II</button>
+  <button class="subject">Metodología de la Investigación</button>
+  <button class="subject">Educación en Salud</button>
+</div>
 
-  <script>
-    // Aquí defines todos tus ramos con prerrequisitos
-    const ramos = [
-      { id: 'anatomía', nombre: 'Anatomía', requisitos: [] },
-      { id: 'biología', nombre: 'Biología Celular', requisitos: [] },
-      { id: 'fundamentos', nombre: 'Fundamentos de Enfermería', requisitos: ['anatomía'] },
-      { id: 'enfermeriaAdulto', nombre: 'Enfermería del Adulto', requisitos: ['fundamentos'] },
-      { id: 'saludPublica', nombre: 'Salud Pública', requisitos: ['biología'] },
-      { id: 'internado', nombre: 'Internado', requisitos: ['enfermeriaAdulto', 'saludPublica'] },
-      // Agrega aquí todos los ramos que necesites siguiendo este formato
-    ];
+<!-- Tercer Año -->
+<div class="year">
+  <h2>3° Año</h2>
+  <button class="subject">Enfermería del Niño y Adolescente I</button>
+  <button class="subject">Enfermería en Salud Mental y Psiquiatría</button>
+  <button class="subject">Salud Sexual y Reproductiva</button>
+  <button class="subject">Gestión del Cuidado I</button>
+  <button class="subject">Taller de Investigación I</button>
+  <button class="subject">Enfermería del Niño y Adolescente II</button>
+  <button class="subject">Enfermería del Adulto Mayor</button>
+  <button class="subject">Epidemiología</button>
+  <button class="subject">Gestión del Cuidado II</button>
+  <button class="subject">Taller de Investigación II</button>
+</div>
 
-    const estado = JSON.parse(localStorage.getItem('estadoRamos')) || {};
+<!-- Cuarto Año -->
+<div class="year">
+  <h2>4° Año</h2>
+  <button class="subject">Práctica Integrada I</button>
+  <button class="subject">Electivo Profesional I</button>
+  <button class="subject">Electivo Profesional II</button>
+  <button class="subject">Gestión del Cuidado III</button>
+  <button class="subject">Proyecto de Título I</button>
+  <button class="subject">Práctica Integrada II</button>
+  <button class="subject">Proyecto de Título II</button>
+  <button class="subject">Ética Clínica</button>
+  <button class="subject">Taller de Titulación</button>
+</div>
 
-    const contenedor = document.getElementById('malla');
+<!-- Quinto Año -->
+<div class="year">
+  <h2>5° Año</h2>
+  <button class="subject">Internado Profesional I</button>
+  <button class="subject">Internado Profesional II</button>
+</div>
 
-    function crearBotones() {
-      contenedor.innerHTML = '';
-      ramos.forEach(ramo => {
-        const btn = document.createElement('button');
-        btn.textContent = ramo.nombre;
-        btn.classList.add('ramo');
-        btn.dataset.id = ramo.id;
-
-        const aprobados = ramo.requisitos.every(req => estado[req]);
-        if (!aprobados && ramo.requisitos.length > 0) {
-          btn.disabled = true;
-        }
-
-        if (estado[ramo.id]) {
-          btn.classList.add('aprobado');
-        }
-
-        btn.addEventListener('click', () => {
-          estado[ramo.id] = !estado[ramo.id];
-          localStorage.setItem('estadoRamos', JSON.stringify(estado));
-          crearBotones();
-        });
-
-        contenedor.appendChild(btn);
+  </div>  <script>
+    const buttons = document.querySelectorAll('.subject');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('completed');
       });
-    }
-
-    crearBotones();
-  </script>
-</body>
+    });
+  </script></body>
 </html>
