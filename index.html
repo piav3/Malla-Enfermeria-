@@ -1,79 +1,106 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva - Enfermería</title>
+  <title>Malla de Enfermería Interactiva</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fff0f5;
-      margin: 0;
-      padding: 20px;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff9fb;
+      padding: 2rem;
+      color: #4d4d4d;
     }
+
     h1 {
       text-align: center;
-      color: #b30059;
+      color: #d38cad;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      gap: 10px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .semestre {
-      background-color: #ffcce6;
-      border: 2px solid #b30059;
-      padding: 10px;
-      border-radius: 10px;
-    }
-    .semestre h3 {
-      margin-top: 0;
-      color: #800040;
-    }
+
     .ramo {
-      display: block;
-      background-color: #ffe6f0;
-      margin: 5px 0;
-      padding: 6px;
-      border-radius: 6px;
-      font-size: 14px;
+      padding: 1rem;
+      background-color: #fbd5e5;
       border: none;
+      border-radius: 12px;
       cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s, text-decoration 0.3s;
+      text-align: center;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 1rem;
     }
-    .ramo.completed {
-      background-color: #d4a5b2;
+
+    .ramo:disabled {
+      background-color: #e3e3e3;
+      color: #a1a1a1;
+      cursor: not-allowed;
+    }
+
+    .ramo.aprobado {
+      background-color: #d3f6db;
+      color: #4b8c5c;
       text-decoration: line-through;
+    }
+
+    .ramo:hover:not(:disabled):not(.aprobado) {
+      background-color: #fce0ec;
     }
   </style>
 </head>
 <body>
-  <h1>Malla Curricular de Enfermería</h1>
-  <div class="grid">
-    <div class="semestre">
-      <h3>Semestre I</h3>
-      <button class="ramo" onclick="toggleCompletion(this)">Química</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Biología</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Base Teórica de la Enfermería I</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Primeros Auxilios</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Psicología Evolutiva</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Inglés I</button>
-    </div>
-    <div class="semestre">
-      <h3>Semestre II</h3>
-      <button class="ramo" onclick="toggleCompletion(this)">Bioquímica</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Morfología I</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Base Teórica de la Enfermería II</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Comunicación y Educación en Salud</button>
-      <button class="ramo" onclick="toggleCompletion(this)">Inglés II</button>
-      <button class="ramo" onclick="toggleCompletion(this)">CFG I</button>
-    </div>
-    <!-- Continúa con los demás semestres siguiendo el mismo formato -->
-  </div>  <script>
-    function toggleCompletion(button) {
-      button.classList.toggle('completed');
+  <h1>Malla de Enfermería ✨</h1>
+  <div class="grid" id="malla"></div>
+
+  <script>
+    // Aquí defines todos tus ramos con prerrequisitos
+    const ramos = [
+      { id: 'anatomía', nombre: 'Anatomía', requisitos: [] },
+      { id: 'biología', nombre: 'Biología Celular', requisitos: [] },
+      { id: 'fundamentos', nombre: 'Fundamentos de Enfermería', requisitos: ['anatomía'] },
+      { id: 'enfermeriaAdulto', nombre: 'Enfermería del Adulto', requisitos: ['fundamentos'] },
+      { id: 'saludPublica', nombre: 'Salud Pública', requisitos: ['biología'] },
+      { id: 'internado', nombre: 'Internado', requisitos: ['enfermeriaAdulto', 'saludPublica'] },
+      // Agrega aquí todos los ramos que necesites siguiendo este formato
+    ];
+
+    const estado = JSON.parse(localStorage.getItem('estadoRamos')) || {};
+
+    const contenedor = document.getElementById('malla');
+
+    function crearBotones() {
+      contenedor.innerHTML = '';
+      ramos.forEach(ramo => {
+        const btn = document.createElement('button');
+        btn.textContent = ramo.nombre;
+        btn.classList.add('ramo');
+        btn.dataset.id = ramo.id;
+
+        const aprobados = ramo.requisitos.every(req => estado[req]);
+        if (!aprobados && ramo.requisitos.length > 0) {
+          btn.disabled = true;
+        }
+
+        if (estado[ramo.id]) {
+          btn.classList.add('aprobado');
+        }
+
+        btn.addEventListener('click', () => {
+          estado[ramo.id] = !estado[ramo.id];
+          localStorage.setItem('estadoRamos', JSON.stringify(estado));
+          crearBotones();
+        });
+
+        contenedor.appendChild(btn);
+      });
     }
-  </script></body>
+
+    crearBotones();
+  </script>
+</body>
 </html>
