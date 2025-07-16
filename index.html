@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Interactiva - Enfermería</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5; 
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #b30059;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      margin-top: 30px;
+    }
+    .semestre {
+      background-color: #ffcce6;
+      border: 2px solid #b30059;
+      padding: 10px;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .semestre:hover {
+      background-color: #ffb3d9;
+      transform: scale(1.03);
+      cursor: pointer;
+    }
+    .semestre h3 {
+      margin-top: 0;
+      color: #800040;
+    }
+    .ramo {
+      background-color: #ffe6f0;
+      margin: 5px 0;
+      padding: 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Curricular de Enfermería</h1>
+  <div class="grid">
+    <div class="semestre">
+      <h3>Semestre I</h3>
+      <div class="ramo">Química</div>
+      <div class="ramo">Biología</div>
+      <div class="ramo">Base Teórica de la Enfermería I</div>
+      <div class="ramo">Primeros Auxilios</div>
+      <div class="ramo">Psicología Evolutiva</div>
+      <div class="ramo">Inglés I</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre II</h3>
+      <div class="ramo">Bioquímica</div>
+      <div class="ramo">Morfología I</div>
+      <div class="ramo">Base Teórica de la Enfermería II</div>
+      <div class="ramo">Comunicación y Educación en Salud</div>
+      <div class="ramo">Inglés II</div>
+      <div class="ramo">CFG I</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre III</h3>
+      <div class="ramo">Microbiología Integrada</div>
+      <div class="ramo">Morfología II</div>
+      <div class="ramo">Cuidados de Enfermería I</div>
+      <div class="ramo">Competencias Genéricas</div>
+      <div class="ramo">Inglés III</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre IV</h3>
+      <div class="ramo">Farmacología</div>
+      <div class="ramo">Fisiopatología</div>
+      <div class="ramo">Cuidados de Enfermería II</div>
+      <div class="ramo">Salud Mental</div>
+      <div class="ramo">Bioestadística</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre V</h3>
+      <div class="ramo">Gestión del Cuidado I</div>
+      <div class="ramo">Psiquiatría</div>
+      <div class="ramo">Bioética</div>
+      <div class="ramo">Salud Pública</div>
+      <div class="ramo">CFG II</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre VI</h3>
+      <div class="ramo">Gestión del Cuidado II</div>
+      <div class="ramo">Adulto Mayor y Psicogeriatría</div>
+      <div class="ramo">Basado en Evidencia</div>
+      <div class="ramo">Gestión y Liderazgo</div>
+      <div class="ramo">CFG III</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre VII</h3>
+      <div class="ramo">Gestión del Cuidado III</div>
+      <div class="ramo">Seguridad y Proyectos</div>
+      <div class="ramo">Metodología I</div>
+      <div class="ramo">Optativo I</div>
+      <div class="ramo">CFG IV</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre VIII</h3>
+      <div class="ramo">Gestión Intra-hospitalaria</div>
+      <div class="ramo">Críticos y Urgencias</div>
+      <div class="ramo">Metodología II</div>
+      <div class="ramo">Medicina Integrativa</div>
+      <div class="ramo">Optativo II</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre IX</h3>
+      <div class="ramo">Internado Comunitario</div>
+      <div class="ramo">Internado en Urgencias</div>
+    </div>
+    <div class="semestre">
+      <h3>Semestre X</h3>
+      <div class="ramo">Internado Intrahospitalario</div>
+    </div>
+  </div>
+</body>
+</html>
