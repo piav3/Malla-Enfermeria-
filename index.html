@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
       margin-top: 40px;
     }
@@ -25,6 +26,7 @@
       padding: 16px;
       border-radius: 12px;
       background-color: #ffe9f0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     .year h2 {
       text-align: center;
@@ -40,6 +42,9 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+    .subject:hover {
+      background-color: #f3c1d2;
+    }
     .subject.completed {
       background-color: #d3bcd3;
       text-decoration: line-through;
@@ -50,7 +55,8 @@
 <body>
   <h1>Malla Curricular de Enfermería</h1>
   <div class="grid">
-    <!-- Primer Año -->
+
+    <!-- 1er Año -->
     <div class="year">
       <h2>1er Año</h2>
       <button class="subject">Química</button>
@@ -64,63 +70,67 @@
       <button class="subject">Bases Teóricas de la Enfermería II</button>
       <button class="subject">Comunicación y Educación en Salud</button>
       <button class="subject">Inglés II</button>
-      <button class="subject">CFG</button>
-    </div><!-- Segundo Año -->
-<div class="year">
-  <h2>2° Año</h2>
-  <button class="subject">Microbiología Integrada</button>
-  <button class="subject">Morfofunción II</button>
-  <button class="subject">Cuidados de Enfermería I</button>
-  <button class="subject">Competencias genéricas para el desarrollo profesional</button>
-  <button class="subject">Inglés III</button>
-  <button class="subject">Farmacología en Enfermería</button>
-  <button class="subject">Fisiopatología en Enfermería</button>
-  <button class="subject">Cuidados de Enfermería II</button>
-  <button class="subject">Enfermería en Salud Mental</button>
-  <button class="subject">Bioestadística</button>
-</div>
+      <button class="subject">CFG I</button>
+    </div>
 
-<!-- Tercer Año -->
-<div class="year">
-  <h2>3° Año</h2>
-  <button class="subject">Gestión del cuidado en la persona adulta en el área hospitalaria</button>
-  <button class="subject">Enfermería en Psiquiatría</button>
-  <button class="subject">Bioética y Legislación en Enfermería</button>
-  <button class="subject">Salud pública</button>
-  <button class="subject">CFG</button>
-  <button class="subject">Gestión del Cuidado en la Comunidad I</button>
-  <button class="subject">Enfermería del Adulto lass="subject">Epidemiología</button>
-  <button class="subject">Gestión del Cuidado II</button>
-  <button class="subject">Taller de Investigación II</button>
-</div>
+    <!-- 2° Año -->
+    <div class="year">
+      <h2>2° Año</h2>
+      <button class="subject">Microbiología Integrada</button>
+      <button class="subject">Morfofunción II</button>
+      <button class="subject">Cuidados de Enfermería I</button>
+      <button class="subject">Competencias Genéricas para el Desarrollo Profesional</button>
+      <button class="subject">Inglés III</button>
+      <button class="subject">Farmacología en Enfermería</button>
+      <button class="subject">Fisiopatología en Enfermería</button>
+      <button class="subject">Cuidados de Enfermería II</button>
+      <button class="subject">Enfermería en Salud Mental</button>
+      <button class="subject">Bioestadística</button>
+    </div>
 
-<!-- Cuarto Año -->
-<div class="year">
-  <h2>4° Año</h2>
-  <button class="subject">Práctica Integrada I</button>
-  <button class="subject">Electivo Profesional I</button>
-  <button class="subject">Electivo Profesional II</button>
-  <button class="subject">Gestión del Cuidado III</button>
-  <button class="subject">Proyecto de Título I</button>
-  <button class="subject">Práctica Integrada II</button>
-  <button class="subject">Proyecto de Título II</button>
-  <button class="subject">Ética Clínica</button>
-  <button class="subject">Taller de Titulación</button>
-</div>
+    <!-- 3° Año -->
+    <div class="year">
+      <h2>3° Año</h2>
+      <button class="subject">Gestión del Cuidado en personas del adulto hospitalizadas</button>
+      <button class="subject">Enfermería en Psiquiatría</button>
+      <button class="subject">Bioética y Legislación en Enfermería</button>
+      <button class="subject">Enfermería basada en la Evidencia</button>
+      <button class="subject">Gestión del Cuidado en la Comunidad I</button>
+      <button class="subject">Enfermería del Adulto Mayor y Geriatría</button>
+      <button class="subject">Calidad, Seguridad y Gestión de Procesos en Enfermería</button>
+      <button class="subject">Metodología de la Investigación I</button>
+    </div>
 
-<!-- Quinto Año -->
-<div class="year">
-  <h2>5° Año</h2>
-  <button class="subject">Internado Profesional I</button>
-  <button class="subject">Internado Profesional II</button>
-</div>
+    <!-- 4° Año -->
+    <div class="year">
+      <h2>4° Año</h2>
+      <button class="subject">Gestión del Cuidado en la Comunidad II</button>
+      <button class="subject">Cuidado de Enfermería a personas en Unidad Crítica y de Urgencia</button>
+      <button class="subject">Metodología de la Investigación II</button>
+      <button class="subject">Gestión y Liderazgo en Enfermería</button>
+      <button class="subject">Optativo I</button>
+      <button class="subject">Enfermería y Medicina Integrativa</button>
+      <button class="subject">CFG IV</button>
+      <button class="subject">Optativo II</button>
+    </div>
 
-  </div>  <script>
+    <!-- 5° Año -->
+    <div class="year">
+      <h2>5° Año</h2>
+      <button class="subject">Internado Comunitario</button>
+      <button class="subject">Internado en Unidades Críticas y de Urgencias</button>
+      <button class="subject">Internado Intrahospitalario</button>
+    </div>
+
+  </div>
+
+  <script>
     const buttons = document.querySelectorAll('.subject');
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         btn.classList.toggle('completed');
       });
     });
-  </script></body>
+  </script>
+</body>
 </html>
